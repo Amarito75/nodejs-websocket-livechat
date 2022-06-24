@@ -8,6 +8,11 @@ function handleWSMessage(event) {
   if (data?.type === 'NEW_MESSAGE') {
     appendMessage(data.payload)
   }
+
+  // AMAR CODE
+  if(data?.type === "ERROR_MESSAGE") {
+    alert(data.payload.error)
+  }
 }
 
 const ws = new WebSocket('ws://localhost:5000/chat')
@@ -44,6 +49,8 @@ export function initChat() {
     messageForm.body.value = null
   })
 }
+
+
 
 // localStorage
 
