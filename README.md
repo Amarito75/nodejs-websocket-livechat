@@ -5,4 +5,4 @@
 1. `npm install` in in each folders (front & back)
 2. `npm run dev` in in each folders (front & back)
 
-**_ Enjoy ! _**
+_ Enjoy ! _
