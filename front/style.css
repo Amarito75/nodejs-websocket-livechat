@@ -1,5 +1,5 @@
 html {
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   height: 100vh;
 }
 *,
@@ -10,13 +10,14 @@ html {
 
 body {
   height: 100vh;
-  max-width: 600px;
+  max-width: 1000px;
   padding: 0 24px;
   margin: auto;
   display: flex;
   overflow: hidden;
   flex-direction: column;
   align-content: space-between;
+  background-color: #EFF2F9;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
 }
@@ -40,7 +41,7 @@ main {
   flex-direction: column;
   height: calc(100vh - 212px);
   max-height: calc(100vh - 212px);
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 main .top-space {
@@ -48,17 +49,77 @@ main .top-space {
   flex: 1 1 auto;
 }
 
+.container-message {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  width: 100%;
+  height: 400px;
+  /* border: 1px solid black; */
+  margin-bottom: 20px;
+}
+
+.date {
+  font-size: x-small;
+  right: 10;
+  text-align: end;
+}
+
+.plus-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  background: #e6e6e6;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.plus-div div {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  color: rgb(129, 129, 129);
+  font-weight: 600;
+}
+
+.emoji-cont {
+    display: flex;
+    width: 20%;
+    height: 24px;
+    justify-content: space-between;
+    align-items: center;
+    /* background: red; */
+}
+
+.emoji-div {
+  width: 20px;
+  height: 100%;
+  /* background: blue; */
+}
+
 .message {
-  width: 60%;
+  /* position: absolute; */
+  width: 50%;
   padding: 12px 18px;
   border-radius: 6px;
   border: solid 1px #bbb;
-  margin-bottom: 18px;
+  /* margin-bottom: 18px; */
 }
 
 .my-message {
-  background: lightgray;
-  margin-left: 35%;
+  width: 50%;
+  padding: 12px 18px;
+  border-radius: 6px;
+  border: solid 1px #bbb;
+  background: #A8B6D4;
+  /* margin-left: 40%; */
 }
 
 .message p {
@@ -67,11 +128,22 @@ main .top-space {
 
 .message span {
   font-size: small;
+  font-weight: bold;
+}
+
+.my-message p {
+  font-size: large;
+}
+
+.my-message span {
+  font-size: small;
+  font-weight: bold;
 }
 
 /* FORM */
 form#new-message {
-  margin: 0;
+  display: flex;
+  justify-content: center;
   padding-top: 12px;
   border-top: solid 1px silver;
 }
@@ -89,9 +161,11 @@ input {
   border: solid 1px silver;
   border-radius: 4px;
   outline: none;
-  padding: 6px;
+  padding: 12px;
 }
 
 input[type='submit'] {
-  padding: 2px;
+  padding: 12px;
+  background-color: #2A3FD6;
+  color: white;
 }

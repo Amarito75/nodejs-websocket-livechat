@@ -9,7 +9,10 @@ function handleWSMessage(event) {
     appendMessage(data.payload)
   }
 
-  // AMAR CODE
+  if(data?.type === "ERROR_PSEUDO") {
+    alert(data.payload.error)
+  }
+
   if(data?.type === "ERROR_MESSAGE") {
     alert(data.payload.error)
   }

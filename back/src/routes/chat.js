@@ -21,10 +21,9 @@ function handleNewMessage(pseudo, body) {
     id: randomUUID(),
     pseudo,
     body,
-    date : new Date()
+    date : new Date().toLocaleDateString()
   }
   messages.push(message)
-  console.log(messages)
   return message
 }
 
@@ -40,13 +39,11 @@ export async function chatRoutes(app) {
       client.send(JSON.stringify(data))
     })
   }
-  // web socket c'est comme html mais en temps reel 
 
-  // /chat/
+  // Chat limits
   app.get('/', { websocket: true }, (connection, reply) => {
     connection.socket.on('message', (message) => {
       const data = JSON.parse(message.toString('utf-8'))
-      //AMAR CODE
       // Fix a length limit 
       if(data.pseudo.length > 20) {
         connection.socket.send(JSON.stringify({
@@ -61,7 +58,7 @@ export async function chatRoutes(app) {
         payload: { error: "message must be 144 characters"},
         }));
         return
-      }
+      }    
       broadcast({
         type: 'NEW_MESSAGE',
         payload: handleNewMessage(data.pseudo, data.body),
